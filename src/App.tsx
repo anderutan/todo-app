@@ -1,9 +1,13 @@
-import { useReducer, createContext } from 'react';
+import { useReducer, createContext, useState } from 'react';
 import InputTask from './components/InputTask';
 import TaskList from './components/TaskList';
 import Filter from './components/Filter';
 import Header from './components/Header';
 import { filterReducer, todoReducer } from './reducer';
+import bgMobileLight from './assets/bg-mobile-light.jpg';
+import bgMobileDark from './assets/bg-mobile-dark.jpg';
+import bgDesktopLight from './assets/bg-desktop-light.jpg';
+import bgDesktopDark from './assets/bg-desktop-dark.jpg';
 import { v4 as uuidv4 } from 'uuid';
 
 const initialTodos = [
@@ -27,6 +31,7 @@ const initialTodos = [
 export const TodoContext = createContext(undefined);
 
 function App() {
+  const [theme, setTheme] = useState(false);
   const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
   const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos);
 
@@ -41,10 +46,16 @@ function App() {
   });
 
   return (
-    <main className=''>
-      <section className='px-5 py-8'>
+    <main className='relative'>
+      <div className='absolute -z-10'>
+        <img
+          src={theme ? bgMobileDark : bgMobileLight}
+          alt='Background image'
+        />
+      </div>
+      <section className='px-6 py-10'>
         <TodoContext.Provider value={dispatchTodos}>
-          <Header />
+          <Header theme={theme} setTheme={setTheme} />
           <InputTask />
           <TaskList todos={filterTodos} />
           <Filter dispatch={dispatchFilter} />

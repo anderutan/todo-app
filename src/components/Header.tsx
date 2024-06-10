@@ -1,18 +1,20 @@
 import sunIcon from '../assets/icon-sun.svg';
 import moonIcon from '../assets/icon-moon.svg';
-import { useState } from 'react';
 
-const Header = () => {
-  const [theme, setTheme] = useState(false);
+type Props = {
+  theme: boolean;
+  setTheme: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
+const Header = ({ theme, setTheme }: Props) => {
   const toggleTheme = () => {
     setTheme(!theme);
     document.documentElement.classList.toggle('dark');
   };
 
   return (
-    <div className='flex justify-between items-center'>
-      <h1>TODO</h1>
+    <header className='flex justify-between items-center mb-5'>
+      <h1 className='font-bold text-white text-2xl tracking-[0.3em]'>TODO</h1>
       <button onClick={toggleTheme}>
         {theme ? (
           <img src={sunIcon} alt='Light Theme Toggle Button' />
@@ -20,7 +22,7 @@ const Header = () => {
           <img src={moonIcon} alt='Dark Theme Toggle Button' />
         )}
       </button>
-    </div>
+    </header>
   );
 };
 

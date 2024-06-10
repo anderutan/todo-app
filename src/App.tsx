@@ -46,7 +46,7 @@ function App() {
   });
 
   return (
-    <main className='relative w-full h-screen bg-bg-2 dark:bg-bg-2-d '>
+    <main className='relative min-w-screen min-h-screen w-full h-full bg-bg-2 dark:bg-bg-2-d '>
       <div className='absolute -z-0'>
         <img
           src={theme ? bgMobileDark : bgMobileLight}
@@ -58,7 +58,7 @@ function App() {
           <Header theme={theme} setTheme={setTheme} />
           <InputTask />
           <TaskList todos={filterTodos} />
-          <Filter dispatch={dispatchFilter} />
+          <Filter dispatch={dispatchFilter} filter={filter} />
         </TodoContext.Provider>
       </section>
     </main>

@@ -39,6 +39,8 @@ export const todoReducer = (state, action) => {
       return state.filter((todo) => todo.id !== action.id);
     case 'REMOVE_COMPLETED':
       return state.filter((todo) => !todo.complete);
+    case 'REORDER_TODOS':
+      return action.todos;
     default:
       throw new Error();
   }

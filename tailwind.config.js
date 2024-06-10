@@ -8,8 +8,6 @@ export default {
         'bg-1': 'hsl(0, 0%, 98%)',
         'bg-2': 'hsl(236, 33%, 92%)',
         'task-done': 'hsl(233, 11%, 84%)',
-        'bg-gradient':
-          'linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)',
         'light-gray': 'hsl(236, 9%, 61%)',
         inactive: 'hsl(235, 19%, 35%)',
         active: 'hsl(220, 98%, 61%)',
@@ -20,5 +18,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };

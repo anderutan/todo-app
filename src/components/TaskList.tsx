@@ -18,12 +18,12 @@ const TaskList = ({ todos }: Props) => {
     dispatch({ type: 'REMOVE_COMPLETED' });
   };
   return (
-    <section>
+    <section className='rounded-md overflow-hidden bg-bg-1 dark:bg-bg-1-d mb-4'>
       <ul>
         {todos.map((todo) => (
-          <ListCard todo={todo} key={todo.id} dispatch={dispatch} />
+          <ListCard todo={todo} key={todo.id} />
         ))}
-        <div>
+        <div className='text-xs text-light-gray flex justify-between p-4'>
           <p>{todos.filter((todo) => !todo.complete).length} items left</p>
           <button type='button' onClick={handleClearBtn}>
             Clear Completed

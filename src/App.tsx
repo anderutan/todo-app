@@ -46,14 +46,14 @@ function App() {
   });
 
   return (
-    <main className='relative'>
-      <div className='absolute -z-10'>
+    <main className='relative w-full h-screen bg-bg-2 dark:bg-bg-2-d '>
+      <div className='absolute -z-0'>
         <img
           src={theme ? bgMobileDark : bgMobileLight}
           alt='Background image'
         />
       </div>
-      <section className='px-5 py-10'>
+      <section className='px-5 py-10 z-10 relative'>
         <TodoContext.Provider value={dispatchTodos}>
           <Header theme={theme} setTheme={setTheme} />
           <InputTask />

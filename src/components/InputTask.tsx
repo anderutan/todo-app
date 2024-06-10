@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { TodoContext } from '../App';
 import { v4 as uuidv4 } from 'uuid';
+import { FaPlus } from 'react-icons/fa';
 
 const InputTask = () => {
   const [task, setTask] = useState('');
@@ -20,14 +21,23 @@ const InputTask = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className='flex px-4 py-3 items-center bg-bg-1 dark:bg-bg-1-d rounded-md'
+    >
+      <label className='inline-flex items-center'>
+        <span className='w-4 h-4 border border-b-line dark:border-b-line-b rounded-full cursor-pointer'></span>
+      </label>
       <input
         type='text'
         value={task}
         onChange={handleChangeInput}
-        className='w-full border shadow-lg px-3 py-1'
+        className='flex-1 p-1 border-none outline-none ml-2 placeholder:text-xs bg-bg-1 dark:bg-bg-1-d dark:text-white'
+        placeholder='Create a new todo...'
       />
-      <button type='submit'>Add</button>
+      <button type='submit'>
+        <FaPlus className='text-xs text-inactive dark:text-b-line' />
+      </button>
     </form>
   );
 };

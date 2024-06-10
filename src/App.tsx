@@ -53,7 +53,7 @@ function App() {
           alt='Background image'
         />
       </div>
-      <section className='px-6 py-10'>
+      <section className='px-5 py-10'>
         <TodoContext.Provider value={dispatchTodos}>
           <Header theme={theme} setTheme={setTheme} />
           <InputTask />

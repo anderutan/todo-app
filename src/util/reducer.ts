@@ -17,7 +17,7 @@ export type FilterAction =
   | { type: 'SHOW_ACTIVE' }
   | { type: 'SHOW_COMPLETE' };
 
-export const filterReducer = (state: string, action: FilterAction) => {
+export const filterReducer = (_state: string, action: FilterAction) => {
   switch (action.type) {
     case 'SHOW_ALL':
       return 'ALL';

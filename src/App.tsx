@@ -49,21 +49,25 @@ function App() {
   });
 
   return (
-    <main className='relative min-w-screen min-h-screen w-full h-full bg-bg-2 dark:bg-bg-2-d max-w-[1440px] mx-auto'>
-      <div className='absolute -z-0'>
-        {width > 375 ? (
-          <img
-            src={theme ? bgDesktopDark : bgDesktopLight}
-            alt='Background image'
-          />
-        ) : (
-          <img
-            src={theme ? bgMobileDark : bgMobileLight}
-            alt='Background image'
-            className='w-full'
-          />
-        )}
-      </div>
+    <main className='relative min-w-screen min-h-screen w-full h-full bg-bg-2 dark:bg-bg-2-d mx-auto'>
+      <div
+        className='absolute inset-0 -z-0'
+        style={{
+          backgroundImage: `url(${
+            width > 375
+              ? theme
+                ? bgDesktopDark
+                : bgDesktopLight
+              : theme
+              ? bgMobileDark
+              : bgMobileLight
+          })`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          height: '30vh',
+        }}
+      ></div>
       <section className='px-5 py-10 z-10 relative max-w-[640px] mx-auto'>
         <TodoContext.Provider value={dispatchTodos}>
           <Header theme={theme} setTheme={setTheme} />

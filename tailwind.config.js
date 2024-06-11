@@ -15,6 +15,7 @@ export default {
         'bg-2-d': 'hsl(235, 21%, 11%)',
         'b-line': 'hsl(236, 33%, 92%)',
         'b-line-b': 'hsl(237, 14%, 26%)',
+        gradient: 'linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)',
       },
     },
   },

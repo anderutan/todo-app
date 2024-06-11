@@ -1,6 +1,10 @@
-import React from 'react';
+import { Dispatch } from 'react';
+import type { FilterAction } from '../util/reducer';
 
-type Props = {};
+type Props = {
+  dispatch: Dispatch<FilterAction>;
+  filter: string;
+};
 
 const Filter = ({ dispatch, filter }: Props) => {
   const handleShowAll = () => {
@@ -14,11 +18,15 @@ const Filter = ({ dispatch, filter }: Props) => {
   };
 
   return (
-    <div className='flex gap-4 justify-center pt-4 py-3 bg-bg-1 dark:bg-bg-1-d text-xs rounded-md'>
+    <div className='flex gap-4 justify-center pt-4 py-3 bg-bg-1 dark:bg-bg-1-d text-xs rounded-md shadow-xl md:text-sm'>
       <button
         type='button'
         onClick={handleShowAll}
-        className={filter === 'ALL' ? 'text-active font-bold' : 'text-inactive'}
+        className={
+          filter === 'ALL'
+            ? 'text-active font-bold'
+            : 'text-light-gray hover:text-inactive dark:text-inactive dark:hover:text-light-gray'
+        }
       >
         All
       </button>
@@ -26,7 +34,9 @@ const Filter = ({ dispatch, filter }: Props) => {
         type='button'
         onClick={handleShowActive}
         className={
-          filter === 'ACTIVE' ? 'text-active font-bold' : 'text-inactive'
+          filter === 'ACTIVE'
+            ? 'text-active font-bold'
+            : 'text-light-gray hover:text-inactive dark:text-inactive dark:hover:text-light-gray'
         }
       >
         Active
@@ -35,7 +45,9 @@ const Filter = ({ dispatch, filter }: Props) => {
         type='button'
         onClick={handleShowComplete}
         className={
-          filter === 'COMPLETE' ? 'text-active font-bold' : 'text-inactive'
+          filter === 'COMPLETE'
+            ? 'text-active font-bold'
+            : 'text-light-gray hover:text-inactive dark:text-inactive dark:hover:text-light-gray'
         }
       >
         Completed

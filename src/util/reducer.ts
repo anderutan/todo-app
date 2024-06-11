@@ -1,4 +1,23 @@
-export const filterReducer = (state, action) => {
+export interface Todo {
+  id: string;
+  task: string;
+  complete: boolean;
+}
+
+export type TodoAction =
+  | { type: 'DO_TODO'; id: string }
+  | { type: 'UNDO_TODO'; id: string }
+  | { type: 'ADD_TODO'; task: string; id: string }
+  | { type: 'REMOVE_TODO'; id: string }
+  | { type: 'REMOVE_COMPLETED' }
+  | { type: 'REORDER_TODOS'; todos: Todo[] };
+
+export type FilterAction =
+  | { type: 'SHOW_ALL' }
+  | { type: 'SHOW_ACTIVE' }
+  | { type: 'SHOW_COMPLETE' };
+
+export const filterReducer = (state: string, action: FilterAction) => {
   switch (action.type) {
     case 'SHOW_ALL':
       return 'ALL';
@@ -11,7 +30,7 @@ export const filterReducer = (state, action) => {
   }
 };
 
-export const todoReducer = (state, action) => {
+export const todoReducer = (state: Todo[], action: TodoAction) => {
   switch (action.type) {
     case 'DO_TODO':
       return state.map((todo) => {

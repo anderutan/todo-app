@@ -14,7 +14,9 @@ const Header = ({ theme, setTheme }: Props) => {
 
   return (
     <header className='flex justify-between items-center mb-5'>
-      <h1 className='font-bold text-white text-2xl tracking-[0.3em]'>TODO</h1>
+      <h1 className='font-bold text-white text-2xl tracking-[0.3em] md:text-3xl'>
+        TODO
+      </h1>
       <button onClick={toggleTheme}>
         {theme ? (
           <img src={sunIcon} alt='Light Theme Toggle Button' />

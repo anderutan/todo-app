@@ -65,10 +65,10 @@ function App() {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          height: '30vh',
+          height: width > 767 ? '40vh' : '35vh',
         }}
       ></div>
-      <section className='px-5 py-10 z-10 relative max-w-[640px] mx-auto'>
+      <section className='px-5 py-10 z-10 relative max-w-[640px] mx-auto md:pt-16 lg:pt-20'>
         <TodoContext.Provider value={dispatchTodos}>
           <Header theme={theme} setTheme={setTheme} />
           <InputTask />

@@ -45,7 +45,7 @@ const ListCard = ({ todo }: Props) => {
 
       <label
         className={`flex-1 p-1 border-none outline-none ml-2 text-xs bg-bg-1 dark:bg-bg-1-d dark:text-white cursor-pointer md:text-base ${
-          todo.complete && 'line-through text-task-done'
+          todo.complete && 'line-through text-task-done dark:text-light-gray'
         }`}
       >
         {todo.task}
